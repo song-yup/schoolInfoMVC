@@ -27,7 +27,8 @@
                     <td><p> <c:out value="${courses.year}"></c:out> </p></td>
                     <td><p> <c:out value="${courses.semester}"></c:out> </p></td>
                     <td><p> <c:out value="${courses.totalScore}"></c:out> </p></td>
-                    <td><p> <a href="${pageContext.request.contextPath}/showdetailcourses/${courses.year}/${courses.semester}">링크</a> </p></td>
+<%--                    <td><p> <a href="${pageContext.request.contextPath}/showdetailcourses/${courses.year}/${courses.semester}">링크</a> </p></td>--%>
+                    <td><p> <a href="${pageContext.request.contextPath}/showdetailcourses?year=${courses.year}&semester=${courses.semester}">링크</a></p></td>
                 </tr>
             </c:forEach>
             <c:forEach var="courses" items="${id_allscores}">

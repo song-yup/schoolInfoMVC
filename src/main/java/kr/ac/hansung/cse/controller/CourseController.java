@@ -27,13 +27,20 @@ public class CourseController {
     public String showCourses(Model model) {
         List<CourseSummary> courseSummaries1 = courseService.getCourseSummaries();
         List<CourseSummary> courseSummaries2 = courseService.getAllScores();
-        model.addAttribute("id_coursesummary", courseSummaries1);
-        model.addAttribute("id_allscores", courseSummaries2);
+        model.addAttribute("id_coursesummary", courseSummaries1)
+                .addAttribute("id_allscores", courseSummaries2);
         return "showcourses";
     }
 
-    @GetMapping("/showdetailcourses/{year}/{semester}")
-    public String showdetailCourses(@PathVariable("year") int year, @PathVariable("semester") int semester, Model model) {
+//    @GetMapping("/showdetailcourses/{year}/{semester}")
+//    public String showdetailCourses(@PathVariable("year") int year, @PathVariable("semester") int semester, Model model) {
+//        List<Course> courses = courseService.getCourseDescription(year, semester);
+//        model.addAttribute("id_courses", courses);
+//        return "showdetailcourses";
+//    }
+
+    @GetMapping("/showdetailcourses")
+    public String showDetailCourses(Model model, @RequestParam("year") int year, @RequestParam("semester") int semester) {
         List<Course> courses = courseService.getCourseDescription(year, semester);
         model.addAttribute("id_courses", courses);
         return "showdetailcourses";
